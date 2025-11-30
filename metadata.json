@@ -1,0 +1,7 @@
+{
+  "name": "Taipei MRT Walkability Explorer",
+  "description": "An interactive map to visualize walkable areas around Taipei Metro stations. Adjust walking time and discover local amenities using Gemini AI.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
