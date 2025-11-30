@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import MapComponent from './components/MapComponent';
 import ControlPanel from './components/ControlPanel';
-import AnalysisPanel from './components/AnalysisPanel';
 import { STATIONS } from './constants';
 import { MRTStation } from './types';
 
@@ -61,7 +60,7 @@ function App() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-        
+
         let minDistance = Infinity;
         let nearestStation: MRTStation | null = null;
 
@@ -96,7 +95,7 @@ function App() {
     <div className="relative w-screen h-screen overflow-hidden">
       {/* Map Background */}
       <div className="absolute inset-0 z-0">
-        <MapComponent 
+        <MapComponent
           stations={STATIONS}
           selectedStations={selectedStations}
           onStationToggle={toggleStation}
@@ -108,7 +107,7 @@ function App() {
       <div className="absolute inset-0 z-10 pointer-events-none flex flex-col md:flex-row p-4 md:p-6 gap-4">
         {/* Sidebar */}
         <div className="flex flex-col gap-4 max-h-full overflow-hidden w-full md:w-auto">
-          <ControlPanel 
+          <ControlPanel
             timeThresholds={timeThresholds}
             onTimeChange={handleTimeChange}
             selectedStations={selectedStations}
@@ -117,11 +116,6 @@ function App() {
             onSelectAll={handleSelectAll}
             onClearAll={handleClearAll}
             isLocating={isLocating}
-          />
-          
-          <AnalysisPanel 
-            stations={selectedStations}
-            timeThresholds={timeThresholds}
           />
         </div>
       </div>
